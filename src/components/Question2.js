@@ -23,14 +23,14 @@ class Question2 extends Component {
     Jumble = (word) => {
         console.log(word);
         console.log(this.state.jumble);
-        const slice = word.slice(0, this.state.jumble)
+        const slice = word.slice(word.length-this.state.jumble, word.length)
         const ans = [];
-        for (let i = this.state.jumble; i < word.length; i++) {
+        for (let i = 0; i < word.length-this.state.jumble; i++) {
             ans.push(word[i]);
         }
 
         this.setState({
-            answer: ans.concat(slice).join('').replace(",",'')
+            answer: slice.concat(ans).join('').replace(",",'')
 
         }, () => {
             console.log(this.state.answer);
